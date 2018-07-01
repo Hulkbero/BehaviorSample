@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BehaviorSample"
+             x:Class="BehaviorSample.MainPage">
+
+    <StackLayout>
+        <Label Text="Email:"/>
+        <Entry Placeholder="Enter Your Email">
+            <Entry.Behaviors>
+                <local:EmailValidator/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text=" Password:" />
+        <Entry   x:Name="passwordEntry"  Placeholder="Password"  IsPassword="true" />
+
+        <Label Text=" Confirm Password:" />
+        <Entry   x:Name="confirmpasswordEntry"  Placeholder="Confirm Password"  IsPassword="true" >
+            <Entry.Behaviors>
+                <local:ConfirmPasswordValidator x:Name="confirmPasswordvalidator" ConfirmTo="{Binding Source={x:Reference passwordEntry}}" />
+            </Entry.Behaviors>
+        </Entry>
+    </StackLayout>
+
+</ContentPage>
